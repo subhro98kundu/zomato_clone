@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2021 at 11:37 PM
+-- Generation Time: Jul 23, 2021 at 05:48 PM
 -- Server version: 10.4.19-MariaDB
 -- PHP Version: 8.0.6
 
@@ -43,7 +43,32 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`address_id`, `user_id`, `street_address`, `landmark`, `city`, `state`, `pin`, `contact_number`) VALUES
-(1, 1, '423 jgkjsfhsjkfh road', 'jfhtydyuf', 'jkhfskk', 'pouitopuipo', '123456', '4567935478');
+(1, 1, '423 jgkjsfhsjkfh road', 'jfhtydyuf', 'jkhfskk', 'pouitopuipo', '123456', '4567935478'),
+(3, 1, '33 J.C. Bose Road', 'near Catholic Church', 'Kolkata', 'West Bengal', '700001', '1000355694'),
+(4, 3, '423 jessore road', '', 'Kolkata', 'West Bengal', '700001', '4567935478'),
+(5, 5, 'The Castle of Winterfell', 'near the tree of old Gods', 'Kolkata', 'West Bengal', '700001', '9234567810'),
+(6, 5, '423 jgkjsfhsjkfh road, Kolkata', 'dffdd', 'jkhfskk', 'pouitopuipo', '123456', '4567545465');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `admin_id` varchar(255) NOT NULL,
+  `res_id` int(11) NOT NULL,
+  `admin_password` varchar(255) NOT NULL,
+  `admin_email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `res_id`, `admin_password`, `admin_email`) VALUES
+('aksuhotel123', 202, '123456789', 'abc@def.com'),
+('petercat_admin', 1, 'PC@123', 'peter.cat@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -56,6 +81,16 @@ CREATE TABLE `bookmarks` (
   `res_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `bookmarks`
+--
+
+INSERT INTO `bookmarks` (`bookmark_id`, `res_id`, `user_id`) VALUES
+(2, 2, 1),
+(3, 13, 1),
+(6, 1, 5),
+(7, 4, 5);
 
 -- --------------------------------------------------------
 
@@ -106,7 +141,6 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (12, 'French Fries', 1, 51, 100, ' North Indian, aloo bhaja, Starter, ', 'What can be better than to start with delicious & crispy French Fries.', 'img/french_fries.png'),
 (13, 'Fried Momo', 1, 5, 185, ' Chinese, Snacks, ', 'Try delicious fried momos', 'img/fried_momo.png'),
 (14, 'Fried Rice', 1, 90, 190, ' North Indian, Fried Rice, Main Course, ', 'Chinese fried rice is the quintessential comfort food.', 'img/fried_rice.png'),
-(15, 'Friendship Bucket', 1, 20, 375, ' North Indian, Chicken, Starter, Main Course, ', 'Select your favorite Crispy Chicken, Friendship Chicken Bucket, Smoky Grilled, Popcorn Chicken and much more at attractive prices.', 'img/friendship_bucket.png'),
 (16, 'Hot Crispy Chicken', 1, 19, 190, ' North Indian, Chicken, Starter, Snacks, ', 'Treat your friends with Colonel signature hot & crispy fried chicken.', 'img/hot_crispy_chicken.png'),
 (17, 'Ice Cream', 1, 35, 70, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/ice_cream.png'),
 (18, 'Cone Ice Cream', 1, 47, 75, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/chicken_kebab.png'),
@@ -116,7 +150,6 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (22, 'Ultimate Savings Bucket', 1, 60, 199, ' North Indian, Chicken, Starter, Main Course, ', 'Crispy fried chicken, hot chicken wings, tasty boneless strips, paired with 2 dips & 1 pet Pepsi​.', 'img/KFC_ultimate_savings_bucket.png'),
 (23, 'Mixed Chowmin', 1, 27, 140, ' Chinese, Chicken, Egg, Main Course, ', 'Enjoy this special chinese dish. Order now.', 'img/mixed_chowmin.png'),
 (24, 'Mixed Fried Rice', 1, 63, 195, ' Chinese, Main Course, ', 'Mixed Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, chicken.', 'img/mixed_fried_rice.png'),
-(25, 'Steam Momo', 1, 62, 120, ' North Indian, Chicken, Starter, momo, ', 'Order and enjoy steamy momos.', 'img/momo.png'),
 (26, 'Pepsi', 1, 15, 70, ' Beverages, pepsi, soft drinks, cold drinks, ', 'One of the best selling drinks in the world.', 'img/pepsi.png'),
 (27, 'Pizza', 1, 53, 180, ' Italian, Starter, Main Course, ', 'A dish made typically of flattened bread dough spread with a savory mixture usually including tomatoes and cheese.', 'img/pizza.png'),
 (28, 'Chicken Roll', 1, 32, 99, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png'),
@@ -382,11 +415,11 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (288, 'Mixed Fried Rice', 9, 73, 195, ' Chinese, Main Course, ', 'Mixed Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, chicken.', 'img/mixed_fried_rice.png'),
 (289, 'Steam Momo', 9, 89, 120, ' North Indian, Chicken, Starter, momo, ', 'Order and enjoy steamy momos.', 'img/momo.png'),
 (290, 'Pepsi', 9, 72, 70, ' Beverages, pepsi, soft drinks, cold drinks, ', 'One of the best selling drinks in the world.', 'img/pepsi.png'),
-(291, 'Pizza', 9, 95, 180, ' Italian, Starter, Main Course, ', 'A dish made typically of flattened bread dough spread with a savory mixture usually including tomatoes and cheese.', 'img/pizza.png');
-INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
+(291, 'Pizza', 9, 95, 180, ' Italian, Starter, Main Course, ', 'A dish made typically of flattened bread dough spread with a savory mixture usually including tomatoes and cheese.', 'img/pizza.png'),
 (292, 'Chicken Roll', 9, 16, 99, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png'),
 (293, 'Spicy Crispy Chicken', 9, 38, 199, ' Chicken, Main Course, ', 'Delicious', 'img/spicy_crispy_chicken.png'),
-(294, '2 Popcorn Rice Bowls', 9, 67, 195, ' Chicken, Main Course, ', 'Delicious meal.', 'img/two_pop_rice_bowls.png'),
+(294, '2 Popcorn Rice Bowls', 9, 67, 195, ' Chicken, Main Course, ', 'Delicious meal.', 'img/two_pop_rice_bowls.png');
+INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
 (295, 'Waffles', 9, 89, 195, ' Desert, Waffle, ', 'Delicious desert.', 'img/waffle.png'),
 (296, 'Egg Roll', 9, 7, 75, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png'),
 (297, 'Egg Chicken Roll', 9, 44, 149, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png'),
@@ -673,11 +706,11 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (578, 'Ice Cream', 18, 52, 70, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/ice_cream.png'),
 (579, 'Cone Ice Cream', 18, 74, 75, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/chicken_kebab.png'),
 (580, 'Chicken Tandoori', 18, 53, 190, ' North Indian, Tandoori, Kebab, Main Course, ', 'Tandoori chicken is a chicken dish prepared by roasting chicken marinated in yogurt and spices in a tandoor', 'img/kebab_n_tandoori.png'),
-(581, 'Big 8', 18, 89, 345, ' North Indian, Chicken, Starter, Main Course, ', 'Enjoy hot & smoky chicken together with KFC Big 8 chicken Bucket.', 'img/KFC_BIG_8.png');
-INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
+(581, 'Big 8', 18, 89, 345, ' North Indian, Chicken, Starter, Main Course, ', 'Enjoy hot & smoky chicken together with KFC Big 8 chicken Bucket.', 'img/KFC_BIG_8.png'),
 (582, 'Stay Home Bucket', 18, 39, 190, ' North Indian, Chicken, Starter, Main Course', 'KFC 2 Popcorn Rice Bowls with 8 pc Hot wings.', 'img/KFC_stay_home_bucket.png'),
 (583, 'Ultimate Savings Bucket', 18, 22, 199, ' North Indian, Chicken, Starter, Main Course, ', 'Crispy fried chicken, hot chicken wings, tasty boneless strips, paired with 2 dips & 1 pet Pepsi​.', 'img/KFC_ultimate_savings_bucket.png'),
-(584, 'Mixed Chowmin', 18, 51, 140, ' Chinese, Chicken, Egg, Main Course, ', 'Enjoy this special chinese dish. Order now.', 'img/mixed_chowmin.png'),
+(584, 'Mixed Chowmin', 18, 51, 140, ' Chinese, Chicken, Egg, Main Course, ', 'Enjoy this special chinese dish. Order now.', 'img/mixed_chowmin.png');
+INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
 (585, 'Mixed Fried Rice', 18, 9, 195, ' Chinese, Main Course, ', 'Mixed Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, chicken.', 'img/mixed_fried_rice.png'),
 (586, 'Steam Momo', 18, 90, 120, ' North Indian, Chicken, Starter, momo, ', 'Order and enjoy steamy momos.', 'img/momo.png'),
 (587, 'Pepsi', 18, 32, 70, ' Beverages, pepsi, soft drinks, cold drinks, ', 'One of the best selling drinks in the world.', 'img/pepsi.png'),
@@ -965,10 +998,10 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (869, 'Crispy Chilli Babycorn', 27, 74, 195, ' North Indian, Veg, Starter, ', 'What can be better than to start with delicious & crispy chilli Baby Corn.', 'img/crispy_chilli_babycorn.png'),
 (870, 'French Fries', 27, 39, 100, ' North Indian, aloo bhaja, Starter, ', 'What can be better than to start with delicious & crispy French Fries.', 'img/french_fries.png'),
 (871, 'Fried Momo', 27, 99, 185, ' Chinese, Snacks, ', 'Try delicious fried momos', 'img/fried_momo.png'),
-(872, 'Fried Rice', 27, 100, 190, ' North Indian, Fried Rice, Main Course, ', 'Chinese fried rice is the quintessential comfort food.', 'img/fried_rice.png');
-INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
+(872, 'Fried Rice', 27, 100, 190, ' North Indian, Fried Rice, Main Course, ', 'Chinese fried rice is the quintessential comfort food.', 'img/fried_rice.png'),
 (873, 'Friendship Bucket', 27, 95, 375, ' North Indian, Chicken, Starter, Main Course, ', 'Select your favorite Crispy Chicken, Friendship Chicken Bucket, Smoky Grilled, Popcorn Chicken and much more at attractive prices.', 'img/friendship_bucket.png'),
-(874, 'Hot Crispy Chicken', 27, 14, 190, ' North Indian, Chicken, Starter, Snacks, ', 'Treat your friends with Colonel signature hot & crispy fried chicken.', 'img/hot_crispy_chicken.png'),
+(874, 'Hot Crispy Chicken', 27, 14, 190, ' North Indian, Chicken, Starter, Snacks, ', 'Treat your friends with Colonel signature hot & crispy fried chicken.', 'img/hot_crispy_chicken.png');
+INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
 (875, 'Ice Cream', 27, 59, 70, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/ice_cream.png'),
 (876, 'Cone Ice Cream', 27, 18, 75, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/chicken_kebab.png'),
 (877, 'Chicken Tandoori', 27, 74, 190, ' North Indian, Tandoori, Kebab, Main Course, ', 'Tandoori chicken is a chicken dish prepared by roasting chicken marinated in yogurt and spices in a tandoor', 'img/kebab_n_tandoori.png'),
@@ -1255,10 +1288,10 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (1158, 'Chicken kebab', 36, 74, 180, ' North Indian, Biryani, Main Course, Kebab', 'A kebab is pieces of meat or vegetables grilled on a long thin stick', 'img/chicken_kebab.png'),
 (1159, 'Burger', 36, 44, 120, ' Italian, Snacks, ', 'A hamburger (also burger for short) is a food, typically considered a sandwich', 'img/burger.png'),
 (1160, 'Chicken Lollipop', 36, 40, 170, ' North Indian, Starter, ', 'A hot and spicy appetizer made with drummettes or whole chicken wings.', 'img/chicken_lollipop.png'),
-(1161, 'Chicken Tikka Masala', 36, 44, 200, ' North Indian, Chicken, Main Course, ', 'Chicken Tikka Masala is an addictive, classic dish for lunch or dinner.', 'img/chicken_tikka_masala.png');
-INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
+(1161, 'Chicken Tikka Masala', 36, 44, 200, ' North Indian, Chicken, Main Course, ', 'Chicken Tikka Masala is an addictive, classic dish for lunch or dinner.', 'img/chicken_tikka_masala.png'),
 (1162, 'Chicken Tikka Butter Masala', 36, 92, 220, ' North Indian, Chicken, Main Course, ', 'Chicken Tikka Butter Masala is an addictive, classic dish for lunch or dinner', 'img/chicken_tikka_butter_masala.png'),
-(1163, 'Coca Cola', 36, 98, 80, ' Beverages, Soft Drinks, Cold Drinks, ', 'Coca-Cola, is a carbonated, sweetened soft drink and is the world\'s best-selling drink.', 'img/coca_cola.png'),
+(1163, 'Coca Cola', 36, 98, 80, ' Beverages, Soft Drinks, Cold Drinks, ', 'Coca-Cola, is a carbonated, sweetened soft drink and is the world\'s best-selling drink.', 'img/coca_cola.png');
+INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
 (1164, 'Chilli Chicken', 36, 95, 185, ' Chinese, Chicken, Main Course, ', 'Chilli chicken is a popular Indo-chinese appetizer.', 'img/chilli_chicken.png'),
 (1165, 'Crispy Chicken Box', 36, 17, 170, ' North Indian, Chicken, Starter, ', 'What can be better than to start with delicious & crispy chicken.', 'img/crispy_chicken_box.png'),
 (1166, 'Crispy Chilli Babycorn', 36, 6, 195, ' North Indian, Veg, Starter, ', 'What can be better than to start with delicious & crispy chilli Baby Corn.', 'img/crispy_chilli_babycorn.png'),
@@ -1544,10 +1577,10 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (1446, 'Pizza', 44, 90, 180, ' Italian, Starter, Main Course, ', 'A dish made typically of flattened bread dough spread with a savory mixture usually including tomatoes and cheese.', 'img/pizza.png'),
 (1447, 'Chicken Roll', 44, 57, 99, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png'),
 (1448, 'Spicy Crispy Chicken', 44, 50, 199, ' Chicken, Main Course, ', 'Delicious', 'img/spicy_crispy_chicken.png'),
-(1449, '2 Popcorn Rice Bowls', 44, 12, 195, ' Chicken, Main Course, ', 'Delicious meal.', 'img/two_pop_rice_bowls.png');
-INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
+(1449, '2 Popcorn Rice Bowls', 44, 12, 195, ' Chicken, Main Course, ', 'Delicious meal.', 'img/two_pop_rice_bowls.png'),
 (1450, 'Waffles', 44, 27, 195, ' Desert, Waffle, ', 'Delicious desert.', 'img/waffle.png'),
-(1451, 'Egg Roll', 44, 61, 75, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png'),
+(1451, 'Egg Roll', 44, 61, 75, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png');
+INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
 (1452, 'Egg Chicken Roll', 44, 78, 149, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png'),
 (1453, 'Chicken Biriyani', 45, 26, 190, ' North Indian, Biryani, Main Course', 'The word Biryani is derived from the Persian word Birian', 'img/chicken_biriyani.png'),
 (1454, 'Egg Biriyani', 45, 14, 120, ' North Indian, Biryani, Main Course', 'The word Biryani is derived from the Persian word Birian', 'img/egg_biriyani.png'),
@@ -1833,9 +1866,9 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (1734, 'Cone Ice Cream', 53, 68, 75, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/chicken_kebab.png'),
 (1735, 'Chicken Tandoori', 53, 37, 190, ' North Indian, Tandoori, Kebab, Main Course, ', 'Tandoori chicken is a chicken dish prepared by roasting chicken marinated in yogurt and spices in a tandoor', 'img/kebab_n_tandoori.png'),
 (1736, 'Big 8', 53, 76, 345, ' North Indian, Chicken, Starter, Main Course, ', 'Enjoy hot & smoky chicken together with KFC Big 8 chicken Bucket.', 'img/KFC_BIG_8.png'),
-(1737, 'Stay Home Bucket', 53, 55, 190, ' North Indian, Chicken, Starter, Main Course', 'KFC 2 Popcorn Rice Bowls with 8 pc Hot wings.', 'img/KFC_stay_home_bucket.png');
+(1737, 'Stay Home Bucket', 53, 55, 190, ' North Indian, Chicken, Starter, Main Course', 'KFC 2 Popcorn Rice Bowls with 8 pc Hot wings.', 'img/KFC_stay_home_bucket.png'),
+(1738, 'Ultimate Savings Bucket', 53, 3, 199, ' North Indian, Chicken, Starter, Main Course, ', 'Crispy fried chicken, hot chicken wings, tasty boneless strips, paired with 2 dips & 1 pet Pepsi​.', 'img/KFC_ultimate_savings_bucket.png');
 INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
-(1738, 'Ultimate Savings Bucket', 53, 3, 199, ' North Indian, Chicken, Starter, Main Course, ', 'Crispy fried chicken, hot chicken wings, tasty boneless strips, paired with 2 dips & 1 pet Pepsi​.', 'img/KFC_ultimate_savings_bucket.png'),
 (1739, 'Mixed Chowmin', 53, 9, 140, ' Chinese, Chicken, Egg, Main Course, ', 'Enjoy this special chinese dish. Order now.', 'img/mixed_chowmin.png'),
 (1740, 'Mixed Fried Rice', 53, 4, 195, ' Chinese, Main Course, ', 'Mixed Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, chicken.', 'img/mixed_fried_rice.png'),
 (1741, 'Steam Momo', 53, 1, 120, ' North Indian, Chicken, Starter, momo, ', 'Order and enjoy steamy momos.', 'img/momo.png'),
@@ -2123,9 +2156,9 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (2023, 'Crispy Chicken Box', 62, 11, 170, ' North Indian, Chicken, Starter, ', 'What can be better than to start with delicious & crispy chicken.', 'img/crispy_chicken_box.png'),
 (2024, 'Crispy Chilli Babycorn', 62, 65, 195, ' North Indian, Veg, Starter, ', 'What can be better than to start with delicious & crispy chilli Baby Corn.', 'img/crispy_chilli_babycorn.png'),
 (2025, 'French Fries', 62, 39, 100, ' North Indian, aloo bhaja, Starter, ', 'What can be better than to start with delicious & crispy French Fries.', 'img/french_fries.png'),
-(2026, 'Fried Momo', 62, 56, 185, ' Chinese, Snacks, ', 'Try delicious fried momos', 'img/fried_momo.png');
+(2026, 'Fried Momo', 62, 56, 185, ' Chinese, Snacks, ', 'Try delicious fried momos', 'img/fried_momo.png'),
+(2027, 'Fried Rice', 62, 91, 190, ' North Indian, Fried Rice, Main Course, ', 'Chinese fried rice is the quintessential comfort food.', 'img/fried_rice.png');
 INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
-(2027, 'Fried Rice', 62, 91, 190, ' North Indian, Fried Rice, Main Course, ', 'Chinese fried rice is the quintessential comfort food.', 'img/fried_rice.png'),
 (2028, 'Friendship Bucket', 62, 10, 375, ' North Indian, Chicken, Starter, Main Course, ', 'Select your favorite Crispy Chicken, Friendship Chicken Bucket, Smoky Grilled, Popcorn Chicken and much more at attractive prices.', 'img/friendship_bucket.png'),
 (2029, 'Hot Crispy Chicken', 62, 32, 190, ' North Indian, Chicken, Starter, Snacks, ', 'Treat your friends with Colonel signature hot & crispy fried chicken.', 'img/hot_crispy_chicken.png'),
 (2030, 'Ice Cream', 62, 69, 70, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/ice_cream.png'),
@@ -2412,9 +2445,9 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (2311, 'Chicken Biriyani', 71, 42, 190, ' North Indian, Biryani, Main Course', 'The word Biryani is derived from the Persian word Birian', 'img/chicken_biriyani.png'),
 (2312, 'Egg Biriyani', 71, 75, 120, ' North Indian, Biryani, Main Course', 'The word Biryani is derived from the Persian word Birian', 'img/egg_biriyani.png'),
 (2313, 'Chicken kebab', 71, 75, 180, ' North Indian, Biryani, Main Course, Kebab', 'A kebab is pieces of meat or vegetables grilled on a long thin stick', 'img/chicken_kebab.png'),
-(2314, 'Burger', 71, 89, 120, ' Italian, Snacks, ', 'A hamburger (also burger for short) is a food, typically considered a sandwich', 'img/burger.png');
+(2314, 'Burger', 71, 89, 120, ' Italian, Snacks, ', 'A hamburger (also burger for short) is a food, typically considered a sandwich', 'img/burger.png'),
+(2315, 'Chicken Lollipop', 71, 97, 170, ' North Indian, Starter, ', 'A hot and spicy appetizer made with drummettes or whole chicken wings.', 'img/chicken_lollipop.png');
 INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
-(2315, 'Chicken Lollipop', 71, 97, 170, ' North Indian, Starter, ', 'A hot and spicy appetizer made with drummettes or whole chicken wings.', 'img/chicken_lollipop.png'),
 (2316, 'Chicken Tikka Masala', 71, 85, 200, ' North Indian, Chicken, Main Course, ', 'Chicken Tikka Masala is an addictive, classic dish for lunch or dinner.', 'img/chicken_tikka_masala.png'),
 (2317, 'Chicken Tikka Butter Masala', 71, 94, 220, ' North Indian, Chicken, Main Course, ', 'Chicken Tikka Butter Masala is an addictive, classic dish for lunch or dinner', 'img/chicken_tikka_butter_masala.png'),
 (2318, 'Coca Cola', 71, 99, 80, ' Beverages, Soft Drinks, Cold Drinks, ', 'Coca-Cola, is a carbonated, sweetened soft drink and is the world\'s best-selling drink.', 'img/coca_cola.png'),
@@ -2700,9 +2733,9 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (2598, 'Mixed Fried Rice', 79, 60, 195, ' Chinese, Main Course, ', 'Mixed Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, chicken.', 'img/mixed_fried_rice.png'),
 (2599, 'Steam Momo', 79, 42, 120, ' North Indian, Chicken, Starter, momo, ', 'Order and enjoy steamy momos.', 'img/momo.png'),
 (2600, 'Pepsi', 79, 32, 70, ' Beverages, pepsi, soft drinks, cold drinks, ', 'One of the best selling drinks in the world.', 'img/pepsi.png'),
-(2601, 'Pizza', 79, 42, 180, ' Italian, Starter, Main Course, ', 'A dish made typically of flattened bread dough spread with a savory mixture usually including tomatoes and cheese.', 'img/pizza.png');
+(2601, 'Pizza', 79, 42, 180, ' Italian, Starter, Main Course, ', 'A dish made typically of flattened bread dough spread with a savory mixture usually including tomatoes and cheese.', 'img/pizza.png'),
+(2602, 'Chicken Roll', 79, 97, 99, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png');
 INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
-(2602, 'Chicken Roll', 79, 97, 99, ' North Indian, Chicken, roll, Starter, ', 'Succulent pieces of spicy chicken cooked with freshly chopped onions and peppers', 'img/rolls.png'),
 (2603, 'Spicy Crispy Chicken', 79, 37, 199, ' Chicken, Main Course, ', 'Delicious', 'img/spicy_crispy_chicken.png'),
 (2604, '2 Popcorn Rice Bowls', 79, 60, 195, ' Chicken, Main Course, ', 'Delicious meal.', 'img/two_pop_rice_bowls.png'),
 (2605, 'Waffles', 79, 99, 195, ' Desert, Waffle, ', 'Delicious desert.', 'img/waffle.png'),
@@ -2990,9 +3023,9 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (2887, 'Hot Crispy Chicken', 88, 72, 190, ' North Indian, Chicken, Starter, Snacks, ', 'Treat your friends with Colonel signature hot & crispy fried chicken.', 'img/hot_crispy_chicken.png'),
 (2888, 'Ice Cream', 88, 99, 70, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/ice_cream.png'),
 (2889, 'Cone Ice Cream', 88, 28, 75, ' Dessert, Ice Cream, ', 'A rich, sweet, creamy frozen food made from variously flavored cream and milk products.', 'img/chicken_kebab.png'),
-(2890, 'Chicken Tandoori', 88, 4, 190, ' North Indian, Tandoori, Kebab, Main Course, ', 'Tandoori chicken is a chicken dish prepared by roasting chicken marinated in yogurt and spices in a tandoor', 'img/kebab_n_tandoori.png');
+(2890, 'Chicken Tandoori', 88, 4, 190, ' North Indian, Tandoori, Kebab, Main Course, ', 'Tandoori chicken is a chicken dish prepared by roasting chicken marinated in yogurt and spices in a tandoor', 'img/kebab_n_tandoori.png'),
+(2891, 'Big 8', 88, 85, 345, ' North Indian, Chicken, Starter, Main Course, ', 'Enjoy hot & smoky chicken together with KFC Big 8 chicken Bucket.', 'img/KFC_BIG_8.png');
 INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
-(2891, 'Big 8', 88, 85, 345, ' North Indian, Chicken, Starter, Main Course, ', 'Enjoy hot & smoky chicken together with KFC Big 8 chicken Bucket.', 'img/KFC_BIG_8.png'),
 (2892, 'Stay Home Bucket', 88, 16, 190, ' North Indian, Chicken, Starter, Main Course', 'KFC 2 Popcorn Rice Bowls with 8 pc Hot wings.', 'img/KFC_stay_home_bucket.png'),
 (2893, 'Ultimate Savings Bucket', 88, 63, 199, ' North Indian, Chicken, Starter, Main Course, ', 'Crispy fried chicken, hot chicken wings, tasty boneless strips, paired with 2 dips & 1 pet Pepsi​.', 'img/KFC_ultimate_savings_bucket.png'),
 (2894, 'Mixed Chowmin', 88, 70, 140, ' Chinese, Chicken, Egg, Main Course, ', 'Enjoy this special chinese dish. Order now.', 'img/mixed_chowmin.png'),
@@ -3280,9 +3313,9 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (3176, 'Coca Cola', 97, 89, 80, ' Beverages, Soft Drinks, Cold Drinks, ', 'Coca-Cola, is a carbonated, sweetened soft drink and is the world\'s best-selling drink.', 'img/coca_cola.png'),
 (3177, 'Chilli Chicken', 97, 39, 185, ' Chinese, Chicken, Main Course, ', 'Chilli chicken is a popular Indo-chinese appetizer.', 'img/chilli_chicken.png'),
 (3178, 'Crispy Chicken Box', 97, 8, 170, ' North Indian, Chicken, Starter, ', 'What can be better than to start with delicious & crispy chicken.', 'img/crispy_chicken_box.png'),
-(3179, 'Crispy Chilli Babycorn', 97, 87, 195, ' North Indian, Veg, Starter, ', 'What can be better than to start with delicious & crispy chilli Baby Corn.', 'img/crispy_chilli_babycorn.png');
+(3179, 'Crispy Chilli Babycorn', 97, 87, 195, ' North Indian, Veg, Starter, ', 'What can be better than to start with delicious & crispy chilli Baby Corn.', 'img/crispy_chilli_babycorn.png'),
+(3180, 'French Fries', 97, 80, 100, ' North Indian, aloo bhaja, Starter, ', 'What can be better than to start with delicious & crispy French Fries.', 'img/french_fries.png');
 INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine`, `description`, `menu_img`) VALUES
-(3180, 'French Fries', 97, 80, 100, ' North Indian, aloo bhaja, Starter, ', 'What can be better than to start with delicious & crispy French Fries.', 'img/french_fries.png'),
 (3181, 'Fried Momo', 97, 92, 185, ' Chinese, Snacks, ', 'Try delicious fried momos', 'img/fried_momo.png'),
 (3182, 'Fried Rice', 97, 74, 190, ' North Indian, Fried Rice, Main Course, ', 'Chinese fried rice is the quintessential comfort food.', 'img/fried_rice.png'),
 (3183, 'Friendship Bucket', 97, 98, 375, ' North Indian, Chicken, Starter, Main Course, ', 'Select your favorite Crispy Chicken, Friendship Chicken Bucket, Smoky Grilled, Popcorn Chicken and much more at attractive prices.', 'img/friendship_bucket.png'),
@@ -3344,7 +3377,9 @@ INSERT INTO `menu` (`menu_id`, `menu_name`, `res_id`, `votes`, `price`, `cuisine
 (3239, 'Chicken Lollipop', 99, 93, 170, ' North Indian, Starter, ', 'A hot and spicy appetizer made with drummettes or whole chicken wings.', 'img/chicken_lollipop.png'),
 (3240, 'Chicken Tikka Masala', 99, 91, 200, ' North Indian, Chicken, Main Course, ', 'Chicken Tikka Masala is an addictive, classic dish for lunch or dinner.', 'img/chicken_tikka_masala.png'),
 (3241, 'Chicken Tikka Butter Masala', 99, 44, 220, ' North Indian, Chicken, Main Course, ', 'Chicken Tikka Butter Masala is an addictive, classic dish for lunch or dinner', 'img/chicken_tikka_butter_masala.png'),
-(3242, 'Coca Cola', 99, 44, 80, ' Beverages, Soft Drinks, Cold Drinks, ', 'Coca-Cola, is a carbonated, sweetened soft drink and is the world\'s best-selling drink.', 'img/coca_cola.png');
+(3242, 'Coca Cola', 99, 44, 80, ' Beverages, Soft Drinks, Cold Drinks, ', 'Coca-Cola, is a carbonated, sweetened soft drink and is the world\'s best-selling drink.', 'img/coca_cola.png'),
+(3244, 'Chicken seekh kebab', 1, 0, 240, 'North Indian', 'Spicy and Delicious. High quality meat roasted with care.', 'img/uploads/menu_img/res1_60f5f87e250ba3.39670304.jpg'),
+(3247, 'Mutton kebab', 1, 0, 220, 'North Indian', 'Spicy and Delicious. High quality meat roasted with care.', 'img/uploads/menu_img/res1_60fad8b2c40064.99209872.jpg');
 
 -- --------------------------------------------------------
 
@@ -3359,15 +3394,28 @@ CREATE TABLE `orders` (
   `status` varchar(255) NOT NULL,
   `payment_method` varchar(255) NOT NULL,
   `amount` double NOT NULL,
-  `address` int(11) NOT NULL
+  `address` int(11) NOT NULL,
+  `res_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `user_id`, `date`, `status`, `payment_method`, `amount`, `address`) VALUES
-('60f34bee43967', 1, '2021-07-18 03:00:00', '1', 'Cash on Delivery', 530, 1);
+INSERT INTO `orders` (`order_id`, `user_id`, `date`, `status`, `payment_method`, `amount`, `address`, `res_id`) VALUES
+('60f34bee43967', 1, '2021-07-18 03:00:00', '-1', 'Cash on Delivery', 530, 1, 1),
+('60f44a791c197', 1, '2021-07-18 09:06:00', 'Delivered!', 'Net Banking', 1550, 1, 1),
+('60f69eb66c46b', 1, '2021-07-20 03:30:00', 'Delivered!', 'Cash on Delivery', 1520, 1, 1),
+('60f69f566ad32', 1, '2021-07-20 03:33:00', 'Delivered!', 'Cash on Delivery', 680, 1, 1),
+('60f6bc38f2e10', 1, '2021-07-20 05:36:00', 'Delivered!', 'Cash on Delivery', 1520, 1, 1),
+('60f6cd62772af', 1, '2021-07-20 06:49:00', 'Delivered!', 'UPI', 530, 1, 1),
+('60f9d07f66c5d', 3, '2021-07-23 01:39:00', 'Delivered!', 'Cash on Delivery', 1300, 4, 1),
+('60fab53d8f7c5', 1, '2021-07-23 05:55:00', '-1', 'Cash on Delivery', 530, 3, 1),
+('60fab598245e3', 1, '2021-07-23 05:57:00', 'Delivered!', 'UPI', 360, 3, 1),
+('60face6433489', 5, '2021-07-23 07:42:00', '-1', 'Cash on Delivery', 1250, 5, 1),
+('60facf34b5b8a', 5, '2021-07-23 07:46:00', 'Delivered!', 'UPI', 1250, 5, 1),
+('60fad942137be', 5, '2021-07-23 08:29:00', '2', 'Cash on Delivery', 990, 5, 1),
+('60fad98eb0ea8', 5, '2021-07-23 08:30:00', '1', 'Net Banking', 1250, 6, 1);
 
 -- --------------------------------------------------------
 
@@ -3377,7 +3425,7 @@ INSERT INTO `orders` (`order_id`, `user_id`, `date`, `status`, `payment_method`,
 
 CREATE TABLE `order_details` (
   `id` int(11) NOT NULL,
-  `order_id` int(255) NOT NULL,
+  `order_id` varchar(255) NOT NULL,
   `menu_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -3387,8 +3435,53 @@ CREATE TABLE `order_details` (
 --
 
 INSERT INTO `order_details` (`id`, `order_id`, `menu_id`, `quantity`) VALUES
-(1, 60, 5, 1),
-(2, 60, 3, 2);
+(1, '60f34bee43967', 5, 1),
+(2, '60f34bee43967', 3, 2),
+(3, '60f44a791c197', 5, 3),
+(4, '60f44a791c197', 2, 3),
+(5, '60f44a791c197', 8, 3),
+(6, '60f44a791c197', 7, 2),
+(7, '60f69eb66c46b', 6, 3),
+(8, '60f69eb66c46b', 4, 4),
+(9, '60f69eb66c46b', 8, 2),
+(10, '60f69eb66c46b', 17, 4),
+(11, '60f69f566ad32', 2, 2),
+(12, '60f69f566ad32', 7, 2),
+(13, '60f6bc38f2e10', 6, 3),
+(14, '60f6bc38f2e10', 4, 4),
+(15, '60f6bc38f2e10', 8, 2),
+(16, '60f6bc38f2e10', 17, 4),
+(17, '60f6cd62772af', 5, 1),
+(18, '60f6cd62772af', 3, 2),
+(19, '60f9cf2f5d5f1', 1, 3),
+(20, '60f9cf2f5d5f1', 3, 2),
+(21, '60f9cf2f5d5f1', 8, 2),
+(22, '60f9cf2f5d5f1', 17, 3),
+(23, '60f9d02686706', 1, 3),
+(24, '60f9d02686706', 3, 2),
+(25, '60f9d02686706', 8, 2),
+(26, '60f9d02686706', 17, 3),
+(27, '60f9d07f66c5d', 1, 3),
+(28, '60f9d07f66c5d', 3, 2),
+(29, '60f9d07f66c5d', 8, 2),
+(30, '60f9d07f66c5d', 17, 3),
+(31, '60fab53d8f7c5', 5, 1),
+(32, '60fab53d8f7c5', 3, 2),
+(33, '60fab598245e3', 4, 3),
+(34, '60face6433489', 1, 2),
+(35, '60face6433489', 7, 1),
+(36, '60face6433489', 10, 3),
+(37, '60face6433489', 26, 2),
+(38, '60facf34b5b8a', 1, 2),
+(39, '60facf34b5b8a', 7, 1),
+(40, '60facf34b5b8a', 10, 3),
+(41, '60facf34b5b8a', 26, 2),
+(42, '60fad942137be', 2, 4),
+(43, '60fad942137be', 5, 3),
+(44, '60fad98eb0ea8', 1, 2),
+(45, '60fad98eb0ea8', 7, 1),
+(46, '60fad98eb0ea8', 10, 3),
+(47, '60fad98eb0ea8', 26, 2);
 
 -- --------------------------------------------------------
 
@@ -3414,50 +3507,50 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`restaurant_id`, `name`, `rating`, `address`, `cuisine`, `cost`, `timing`, `nightlife`, `diningout`, `res_img`) VALUES
-(1, 'Peter Cat', 4.2, '18A, Park Street, Park Street Area, Kolkata', 'North Indian, Continental', 1000, '11am to 11:20pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(2, 'Naturals Ice Cream', 4.9, '77/1/A, Ground Floor, Near West Bengal Board, Park Street Area, Kolkata', 'North Indian, Continental', 200, '11am to 12midnight (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(3, 'Carpe Diem', 4.4, '18M, Park Street Area, Kolkata', 'Ice Cream', 1, '12noon to 12midnight (Mon, Tue, Wed, Thu, Fri...', 0, 1, 'img/def_res.jpg'),
-(4, 'Barbeque Nation', 4.6, '1st Floor, 24, Park Center Building, Park Street Area, Kolkata', 'Ice Cream', 1, '12noon to 3:30pm, 6:30pm to 10:45pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(5, 'Flurys', 4.2, '15, Apeejay House, Park Street Area, Kolkata', 'Chinese, North Indian, Continental', 400, '7:30am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(6, 'KFC', 4.1, '20K, Park Street, Park Street Area, Kolkata', 'Chinese, North Indian, Continental', 450, '11am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(7, 'Tung Fong', 4.3, '25 B, Ground Floor, Karnani Mansion, Free School Street, Park Street Area, Kolkata', 'North Indian, Chinese, Kebab, BBQ', 1, '12noon to 4pm, 6pm to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(8, 'Arsalan', 4, '119 A, Muzaffar Ahmed Street, Mirza Ghalib Street Crossing, Park Street Area, Kolkata', 'North Indian, Chinese, Kebab, BBQ', 1, '11am to 11:45pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(9, 'Kusum Rolls', 4.1, '21, Karnani Mansion, Park Street Area, Kolkata', 'Bakery, Desserts, Sandwich', 300, '12noon to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(10, 'Kareem\'s', 4.3, '55 B, Mirza Ghalib Street, Park Street Area, Kolkata', 'Bakery, Desserts, Sandwich', 1, '12:30pm to 4:30pm, 6:30pm to 11:30pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(11, 'WOW! China', 3.8, '19-57, Park Street Area, Kolkata', 'Fast Food, Burger', 650, '12noon to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(12, 'Golden Spoon', 3.6, '1, Middleton Row, Near Loreto House, Park Street Area, Kolkata', 'Fast Food, Burger', 600, '12noon to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(13, 'BarBQ', 4.3, '43-47-55, Park Street Area, Kolkata', 'Chinese, Asian', 1, '12noon to 11:15pm (Mon-Sun)', 1, 1, 'img/def_res.jpg'),
-(14, 'The Kebab Factory', 0, '33, Royd Street, Park Street Area, Kolkata', 'Chinese, Asian', 350, '11am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
+(1, 'Peter Cat', 4.2, '18A, Park Street, Park Street Area, Kolkata', 'North Indian, Continental', 1000, '11am to 11:20pm (Mon-Sun)', 0, 1, 'img/uploads/res_img/res1_profile_img.jpg'),
+(2, 'Naturals Ice Cream', 4.9, '77/1/A, Ground Floor, Near West Bengal Board, Park Street Area, Kolkata', 'North Indian, Continental', 200, '11am to 12midnight (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/6/18589546/46146a918fdbd75acc2d2ede1ed71ea5.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(3, 'Carpe Diem', 4.4, '18M, Park Street Area, Kolkata', 'Ice Cream', 1, '12noon to 12midnight (Mon, Tue, Wed, Thu, Fri...', 1, 1, 'https://b.zmtcdn.com/data/pictures/9/18634729/bfe9fea24968af086ea01a8ae26d15c2.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(4, 'Barbeque Nation', 4.6, '1st Floor, 24, Park Center Building, Park Street Area, Kolkata', 'Ice Cream', 1, '12noon to 3:30pm, 6:30pm to 10:45pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/2/20842/8b6ae2a5f1fbc880e281513126c56dad.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(5, 'Flurys', 4.2, '15, Apeejay House, Park Street Area, Kolkata', 'Chinese, North Indian, Continental', 400, '7:30am to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/2/21212/1107139137e6317bba2272fb80ade1fc.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(6, 'KFC', 4.1, '20K, Park Street, Park Street Area, Kolkata', 'Chinese, North Indian, Continental', 450, '11am to 11pm (Mon-Sun)', 0, 1, 'https://th.bing.com/th/id/OIP.IMhG6r7tinkwOLd_vPBVYwHaEc?pid=ImgDet&rs=1'),
+(7, 'Tung Fong', 4.3, '25 B, Ground Floor, Karnani Mansion, Free School Street, Park Street Area, Kolkata', 'North Indian, Chinese, Kebab, BBQ', 1, '12noon to 4pm, 6pm to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/0/21380/455321951c0f22aeb98e2f3c5aef7d2f.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(8, 'Arsalan', 4, '119 A, Muzaffar Ahmed Street, Mirza Ghalib Street Crossing, Park Street Area, Kolkata', 'North Indian, Chinese, Kebab, BBQ', 1, '11am to 11:45pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/5/20795/adfd20727edb7545d5452e52dbdcfd83.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(9, 'Kusum Rolls', 4.1, '21, Karnani Mansion, Park Street Area, Kolkata', 'Bakery, Desserts, Sandwich', 300, '12noon to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/7/22067/56f974ff0100bf3a602236ec21c5d88a.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(10, 'Kareem\'s', 4.3, '55 B, Mirza Ghalib Street, Park Street Area, Kolkata', 'Bakery, Desserts, Sandwich', 1, '12:30pm to 4:30pm, 6:30pm to 11:30pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/9/18471909/887edafaea95b1b6b317a2c7424c4a98.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(11, 'WOW! China', 3.8, '19-57, Park Street Area, Kolkata', 'Fast Food, Burger', 650, '12noon to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/2/18926302/4e5dee66821fc9b8cff81d33e71e9ce9.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(12, 'Golden Spoon', 3.6, '1, Middleton Row, Near Loreto House, Park Street Area, Kolkata', 'Fast Food, Burger', 600, '12noon to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/0/21470/b17b489b997abfa5b907fa36023d5ece.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(13, 'BarBQ', 4.3, '43-47-55, Park Street Area, Kolkata', 'Chinese, Asian', 1, '12noon to 11:15pm (Mon-Sun)', 1, 1, 'https://b.zmtcdn.com/data/pictures/0/20870/05be2f1e35d6b4529c3b83f9835f7d2a.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(14, 'The Kebab Factory', 0, '33, Royd Street, Park Street Area, Kolkata', 'Chinese, Asian', 350, '11am to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/6/19361116/72e86a4a7d8369fee5fb55cd65c3d495.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
 (15, 'Patisserie By Franziska', 0, '13C, Russell Street, Opposite Bengal Club, Park Street Area, Kolkata', 'Mughlai, North Indian, Rolls, Biryani', 450, '', 0, 1, 'img/def_res.jpg'),
-(16, 'The Sixth Sense', 4, '25B, Karnani Mansion, Opposite Westside, Park Street Area, Kolkata', 'Mughlai, North Indian, Rolls, Biryani', 1, '12noon to 12midnight (Mon-Thu),12noon to 2am...', 0, 1, 'img/def_res.jpg'),
+(16, 'The Sixth Sense', 4, '25B, Karnani Mansion, Opposite Westside, Park Street Area, Kolkata', 'Mughlai, North Indian, Rolls, Biryani', 1, '12noon to 12midnight (Mon-Thu),12noon to 2am...', 0, 1, 'https://b.zmtcdn.com/data/pictures/1/19235651/bc70460d20af11dca758f0b8ed595b01.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
 (17, 'Food King', 3.3, '90/1, Ground Floor, Muzaffar Ahmed Street, Ward 62, BR-4, Park Street Area, Kolkata', 'Rolls', 300, '12noon to 11:30pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(18, 'Burgrill', 4.2, '12B/2, Park Street Park, Opposite Oxford Book Store, Park Street Area, Kolkata', 'Rolls', 500, '11am to 2am (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
+(18, 'Burgrill', 4.2, '12B/2, Park Street Park, Opposite Oxford Book Store, Park Street Area, Kolkata', 'Rolls', 500, '11am to 2am (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/1/18874931/59df05787f60054b1e0efbf658e43e35.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
 (19, 'Zainab Biryani', 0, '19, Alimuddin Street, Park Street Area, Kolkata', 'Biryani, North Indian, Mughlai', 400, '11am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(20, 'The Crepe Cafe', 4.4, '6/1A, Middleton Street, Park Street Area, Kolkata', 'Biryani, North Indian, Mughlai', 800, '10:30am to 10:30pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(21, 'Waffle Wallah', 4.2, '18 G, Stephen Court, Park Street Area, Kolkata', 'Chinese, Burmese', 450, '8am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(22, 'Shiraz Golden Restaurant', 4, '135, Park Street Area, Kolkata', 'Chinese, Burmese', 600, '12noon to 11:30pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(23, 'Moulin Rouge', 3.8, '31, Park Street Area, Kolkata', 'North Indian, Chinese, Mughlai', 700, '12noon to 11:30pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(24, 'Pizza Hut', 3.7, '20 K, Sir William Jones Sarani, Park Street Area, Kolkata', 'North Indian, Chinese, Mughlai', 600, '11am to 1am (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(25, 'NFC Food Funda', 3.9, '48, AJC Bose Road, Near Mother Teresa House, Park Street Area, Kolkata', 'Chinese, North Indian, Asian', 200, '12:30pm to 12midnight (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(26, '1000 BC', 3.9, 'Ground Floor, 1, Camac Street, Park Street Area, Kolkata', 'Chinese, North Indian, Asian', 1, '12noon to 2am (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(27, 'Eaterniaa', 4.1, '111, Ripon Street, Near Ripon Street Police Museum, Park Street Area, Kolkata', 'Kebab', 500, '11:30am to 12midnight (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(28, 'Barista', 3.5, '57, Park Street, Park Street Area, Kolkata', 'Kebab', 600, '8am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(29, 'Hot Kati Roll', 3.8, '1B, Park Estate, Park Street Area, Kolkata', 'Bakery, Desserts', 200, '11am to 10pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(30, 'One Step Up', 4.1, '18A, Park Street, Park Street Area, Kolkata', 'Bakery, Desserts', 1, '12noon to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(31, 'Domino\'s Pizza', 3.9, '31, Ward 63, Chowringhee Road, Shakespeare Sarani, Park Street Area, Kolkata', 'Continental, Chinese, North Indian', 400, '11am to 3am (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(32, 'Aqua - The Park', 4, 'The Park, 17, Park Street Area, Kolkata', 'Continental, Chinese, North Indian', 3, '', 0, 1, 'img/def_res.jpg'),
-(33, 'Roll It Out', 3.9, '2, Middle Row, Park Street Area, Kolkata', 'Chinese, Fast Food', 350, '11am to 1am (Mon),11am to 3am (Tue-Sun)', 0, 1, 'img/def_res.jpg'),
+(20, 'The Crepe Cafe', 4.4, '6/1A, Middleton Street, Park Street Area, Kolkata', 'Biryani, North Indian, Mughlai', 800, '10:30am to 10:30pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/reviews_photos/a0e/b2e4f10f552ceadfcf2435c7b22d0a0e_1577340149.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(21, 'Waffle Wallah', 4.2, '18 G, Stephen Court, Park Street Area, Kolkata', 'Chinese, Burmese', 450, '8am to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/3/18589513/67711266172ee18b7a0c63a7e7dccca2.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(22, 'Shiraz Golden Restaurant', 4, '135, Park Street Area, Kolkata', 'Chinese, Burmese', 600, '12noon to 11:30pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/8/20468/86dd697f4fb2ba6a9aff4abc3f1b8995.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(23, 'Moulin Rouge', 3.8, '31, Park Street Area, Kolkata', 'North Indian, Chinese, Mughlai', 700, '12noon to 11:30pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/1/20881/8e7931cc51bf126b6ce8c1a60ff25a16.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(24, 'Pizza Hut', 3.7, '20 K, Sir William Jones Sarani, Park Street Area, Kolkata', 'North Indian, Chinese, Mughlai', 600, '11am to 1am (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/7/20407/4f4440d6f4e39151f92a850c27ac13f7.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(25, 'NFC Food Funda', 3.9, '48, AJC Bose Road, Near Mother Teresa House, Park Street Area, Kolkata', 'Chinese, North Indian, Asian', 200, '12:30pm to 12midnight (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/0/18892050/4fa8edcf921a6e155895edd46ee48f78.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(26, '1000 BC', 3.9, 'Ground Floor, 1, Camac Street, Park Street Area, Kolkata', 'Chinese, North Indian, Asian', 1, '12noon to 2am (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/8/18922138/bc6d1be23fdc4700bc92972d503ba178.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(27, 'Eaterniaa', 4.1, '111, Ripon Street, Near Ripon Street Police Museum, Park Street Area, Kolkata', 'Kebab', 500, '11:30am to 12midnight (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/6/18573826/a876009f62ad4e6f25e12ff4cd7d72d8.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(28, 'Barista', 3.5, '57, Park Street, Park Street Area, Kolkata', 'Kebab', 600, '8am to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/4/21144/cc4d489ec5ba993e4ee4865b2dfd6163.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(29, 'Hot Kati Roll', 3.8, '1B, Park Estate, Park Street Area, Kolkata', 'Bakery, Desserts', 200, '11am to 10pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/5/19273295/92b1cd63faf6fdbf832d598cc2e6a411.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(30, 'One Step Up', 4.1, '18A, Park Street, Park Street Area, Kolkata', 'Bakery, Desserts', 1, '12noon to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/6/21376/7f62ad7988326a242b784de10f2d6ff3.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(31, 'Domino\'s Pizza', 3.9, '31, Ward 63, Chowringhee Road, Shakespeare Sarani, Park Street Area, Kolkata', 'Continental, Chinese, North Indian', 400, '11am to 3am (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/2/20172/dd087133fd1d024cccaa87a6847acd22.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(32, 'Aqua - The Park', 4, 'The Park, 17, Park Street Area, Kolkata', 'Continental, Chinese, North Indian', 3, '', 0, 1, 'https://b.zmtcdn.com/data/pictures/8/21508/ae9c6d394591b391f9aeba07fec9787a.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(33, 'Roll It Out', 3.9, '2, Middle Row, Park Street Area, Kolkata', 'Chinese, Fast Food', 350, '11am to 1am (Mon),11am to 3am (Tue-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/3/18767033/514d861116bf445684e8dcca8519e945.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
 (34, 'Paradise Biryani', 0, 'Shop 30 D, Ground Floor, Building Chowringhee Mansion, Jawaharlal Nehru Road, Park Street Area, Kolkata', 'Chinese, Fast Food', 800, '11am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
 (35, 'Nawab Dum Biryani', 3.3, '35/1, AJC Bose Road, Near Mercy Hospital, Park Street Area, Kolkata', 'Fast Food, Burger, Healthy Food', 500, '11am to 4am (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(36, 'The Bridge - The Park', 4, 'The Park, 17, Park Street, Park Street Area, Kolkata', 'Fast Food, Burger, Healthy Food', 3, '12noon to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(37, 'Koshe Kosha', 4, '1/1C, Ripon Street, Muzzafar Ahmed Street, Near Free School Street, Park Street Area, Kolkata', 'Biryani, Mughlai', 700, '11am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(38, 'The GT Route - Jameson Inn Shiraz', 3.9, '56, Park Street Area, Kolkata', 'Biryani, Mughlai', 850, '12noon to 4pm, 7:30pm to 11:30pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(39, 'Aurum Club & Kitchen', 4.1, '1/1, Camac Street, Opposite Allen Park, Park Street Area, Kolkata', 'Cafe', 1, '1pm to 2am (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(40, 'Sienna Store & Cafe', 0, '24, 1st Floor, Development House, Park Street Area, Kolkata', 'Cafe', 900, '', 0, 1, 'img/def_res.jpg'),
-(41, 'Trincas', 4.1, '17, Park Street Area, Kolkata', 'Desserts, Bakery, Beverages', 1, '11:30am to 11:30pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(42, 'Zen - The Park', 4.1, 'The Park, 17, Park Street Area, Kolkata', 'Desserts, Bakery, Beverages', 4, '', 0, 1, 'img/def_res.jpg'),
+(36, 'The Bridge - The Park', 4, 'The Park, 17, Park Street, Park Street Area, Kolkata', 'Fast Food, Burger, Healthy Food', 3, '12noon to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/0/20850/fd40058a90b327562f07b9054fff9d24.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(37, 'Koshe Kosha', 4, '1/1C, Ripon Street, Muzzafar Ahmed Street, Near Free School Street, Park Street Area, Kolkata', 'Biryani, Mughlai', 700, '11am to 11pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/2/20702/b705477b6c7b41a6c4b879aebf0a0192.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(38, 'The GT Route - Jameson Inn Shiraz', 3.9, '56, Park Street Area, Kolkata', 'Biryani, Mughlai', 850, '12noon to 4pm, 7:30pm to 11:30pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/4/18017614/7b0a7ccf183ad0820b503dc4c16232c6.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(39, 'Aurum Club & Kitchen', 4.1, '1/1, Camac Street, Opposite Allen Park, Park Street Area, Kolkata', 'Cafe', 1, '1pm to 2am (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/9/18632409/24fecb764a4e755e926c5c2f3f507d7c.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(40, 'Sienna Store & Cafe', 0, '24, 1st Floor, Development House, Park Street Area, Kolkata', 'Cafe', 900, '', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/2/18237062/94fab1772c75f245e805a349559a1af3.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(41, 'Trincas', 4.1, '17, Park Street Area, Kolkata', 'Desserts, Bakery, Beverages', 1, '11:30am to 11:30pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/1/21781/00201868c93186a562ad23e02ea2cb35.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
+(42, 'Zen - The Park', 4.1, 'The Park, 17, Park Street Area, Kolkata', 'Desserts, Bakery, Beverages', 4, '', 0, 1, 'https://b.zmtcdn.com/data/pictures/8/20848/f2337ae392325200484c945095727654.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
 (43, 'Lost in Taste', 3.2, '115, Muzaffar Ahmed Street Adjacent, Park Street Area, Kolkata', 'Biryani, North Indian, Mughlai, Kebab, Rolls', 500, '12noon to 3am (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(44, 'WOW! Momo', 3.9, '1, Ho Chi Minh Sarani, Opposite to Central, Park Street Area, Kolkata', 'Biryani, North Indian, Mughlai, Kebab, Rolls', 350, '10:30am to 10pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
+(44, 'WOW! Momo', 3.9, '1, Ho Chi Minh Sarani, Opposite to Central, Park Street Area, Kolkata', 'Biryani, North Indian, Mughlai, Kebab, Rolls', 350, '10:30am to 10pm (Mon-Sun)', 0, 1, 'https://b.zmtcdn.com/data/pictures/chains/0/21060/fe92135685160e19b3a464a788876e45.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
 (45, 'Midnight Bites', 3.7, '35/1, AJC Bose Road, Near Mercy Hospital, Park Street Area, Kolkata', 'North Indian, Finger Food, Chinese', 400, '6pm to 4am (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
 (46, 'SpiceKlub', 4.2, '1st Floor, 24, Park Street, Annex Building, Magma House Complex, Park Street Area, Kolkata', 'North Indian, Finger Food, Chinese', 2, '12noon to 3:30pm, 6:30pm to 11:30pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
 (47, 'Saffron - The Park', 4.1, 'The Park, 17, Park Street Area, Kolkata', 'Pizza, Desserts, Fast Food', 1, '', 0, 1, 'img/def_res.jpg'),
@@ -3505,7 +3598,7 @@ INSERT INTO `restaurants` (`restaurant_id`, `name`, `rating`, `address`, `cuisin
 (89, 'Universal Cafe', 3.2, '23 A, Royd Street, Park Street Area, Kolkata', 'Chinese, Pizza, Burger', 300, '12noon to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
 (90, 'Arambagh Restaurant', 3, '45, Mirza Ghalib Street, Kolkata, Park Street Area, Kolkata', 'Chinese, Pizza, Burger', 250, '11am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
 (91, 'Shireen Biryani And Fast Food', 3, '40/1, Rafi Ahmed Kidwai Road, Park Street Area, Kolkata', 'North Indian', 350, '12:30pm to 12midnight (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(92, 'Rajnigandha Bar', 3.2, '13D, Middleton Row, Park Street Area, Kolkata', 'North Indian', 1, '11am to 11pm (Mon-Sun)', 1, 1, 'img/def_res.jpg'),
+(92, 'Rajnigandha Bar', 3.2, '13D, Middleton Row, Park Street Area, Kolkata', 'North Indian', 1, '11am to 11pm (Mon-Sun)', 1, 1, 'https://b.zmtcdn.com/data/pictures/6/18398856/c9cc159f99c964e16be85d407ae927ca.jpg?output-format=webp&fit=around|771.75:416.25&crop=771.75:416.25;*,*'),
 (93, 'Yippee Point', 3.4, '77/1,  Park Street Area, Kolkata', 'North Indian, Bengali', 150, '11am to 8pm (Mon-Sat),Closed (Sun)', 0, 1, 'img/def_res.jpg'),
 (94, 'Grill Sandwich & Juice', 3.6, '23/A, Royd Street, Park Street Area, Kolkata', 'North Indian, Bengali', 400, '8am to 9pm (Mon-Sat),Closed (Sun)', 0, 1, 'img/def_res.jpg'),
 (95, 'Cafe Coffee Day Square', 3.4, '55 Park Street, Park Street Area, Kolkata', 'North Indian, Chinese, Fast Food', 700, '8am to 12midnight (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
@@ -3612,7 +3705,8 @@ INSERT INTO `restaurants` (`restaurant_id`, `name`, `rating`, `address`, `cuisin
 (196, 'I Love Haldiram', 3.7, '9, Camac Street Area, Kolkata', 'North Indian, Chinese', 350, '10am to 10pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
 (197, 'Anadi Cabin', 2.8, '9, Jawaharlal Nehru Road, New Market Area, Kolkata', 'Burger, American, Fast Food', 250, '11am to 9:30pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
 (198, 'Amber', 3.8, '11, Waterloo Street, Esplanade, Kolkata', 'Burger, American, Fast Food', 1, '12noon to 3pm, 7pm to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
-(199, 'Food Quest', 3.3, '1/2, Lord Sinha Road, Ward 63, Elgin, Kolkata', 'Chinese, Thai', 150, '9am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg');
+(199, 'Food Quest', 3.3, '1/2, Lord Sinha Road, Ward 63, Elgin, Kolkata', 'Chinese, Thai', 150, '9am to 11pm (Mon-Sun)', 0, 1, 'img/def_res.jpg'),
+(202, 'Aksu Lodge', 0, '423 jgkjsfhsjkfh road, Kolkata', 'North Indian, Continental', 200, '10:00 AM - 10:00 PM (MON-SUN)', 0, 1, 'img/def_res.jpg');
 
 -- --------------------------------------------------------
 
@@ -3633,7 +3727,41 @@ CREATE TABLE `reviews` (
 --
 
 INSERT INTO `reviews` (`id`, `user_id`, `res_id`, `review_content`, `review_date`) VALUES
-(1, 1, 13, 'awesome food and delivery', '2021-07-18 03:06:00');
+(1, 1, 13, 'awesome food and delivery', '2021-07-18 03:06:00'),
+(2, 1, 1, 'Delicious food and awesome ambience.', '2021-07-23 06:09:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tablebooking`
+--
+
+CREATE TABLE `tablebooking` (
+  `id` int(11) NOT NULL,
+  `booking_id` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `inthenameof` varchar(255) NOT NULL,
+  `table_no` int(11) NOT NULL,
+  `timing` varchar(255) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `total` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `booking_time` datetime NOT NULL,
+  `res_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tablebooking`
+--
+
+INSERT INTO `tablebooking` (`id`, `booking_id`, `user_id`, `inthenameof`, `table_no`, `timing`, `duration`, `total`, `status`, `booking_time`, `res_id`) VALUES
+(1, 'gugudkjh47sf55u', 1, 'Danerys Tygarrion', 1, '7:00 P.M.', 2, 1000, 2, '2021-07-21 18:19:34', 1),
+(3, '60f87c067cf19', 1, 'Khal Drogo', 4, '19:00', 2, 4000, -1, '2021-07-22 01:26:00', 1),
+(4, '60f87d5156323', 1, 'Arya Stark', 1, '20:00', 1, 1000, 2, '2021-07-22 01:32:00', 1),
+(5, '60f87f81e51e2', 1, 'Tyrion Lannister', 1, '20:30', 2, 1000, 2, '2021-07-22 01:41:00', 1),
+(6, '60fab618acadf', 1, 'Jaime Lannister', 1, '19:00', 2, 1000, 2, '2021-07-23 05:59:00', 1),
+(7, '60fac7d1718ab', 1, 'Rhaegar Tygarrion', 2, '18:00', 2, 2000, 1, '2021-07-23 07:14:00', 1),
+(8, '60facfc557e7d', 5, 'Hordo', 1, '16:00', 2, 1000, 2, '2021-07-23 07:48:00', 1);
 
 -- --------------------------------------------------------
 
@@ -3653,7 +3781,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `name`, `email`, `password`) VALUES
-(1, 'SUBHRANIL KUNDU', 'subhro98kundu@gmail.com', '123456789');
+(1, 'Hound', 'thehound@got.com', '98765432'),
+(2, 'Sansa Stark', 'sansa@got.com', 'ladyofwinterfell'),
+(3, 'Aegon Tygarrion', 'aegon@got.com', 'thesongofice&fire'),
+(4, 'Edward Stark', 'nedstark@gmail.com', 'winteriscoming'),
+(5, 'Bran Stark', 'branstark@got.com', 'thethreeeyedraven');
 
 --
 -- Indexes for dumped tables
@@ -3664,6 +3796,13 @@ INSERT INTO `users` (`user_id`, `name`, `email`, `password`) VALUES
 --
 ALTER TABLE `address`
   ADD PRIMARY KEY (`address_id`);
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`),
+  ADD UNIQUE KEY `res_id` (`res_id`);
 
 --
 -- Indexes for table `bookmarks`
@@ -3708,6 +3847,13 @@ ALTER TABLE `reviews`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tablebooking`
+--
+ALTER TABLE `tablebooking`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `booking_id` (`booking_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -3721,49 +3867,55 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `bookmarks`
 --
 ALTER TABLE `bookmarks`
-  MODIFY `bookmark_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `bookmark_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3243;
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3248;
 
 --
 -- AUTO_INCREMENT for table `order_details`
 --
 ALTER TABLE `order_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=200;
+  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
 
 --
 -- AUTO_INCREMENT for table `reviews`
 --
 ALTER TABLE `reviews`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tablebooking`
+--
+ALTER TABLE `tablebooking`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
